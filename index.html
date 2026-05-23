@@ -3,126 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abu Dhabi National Oil Company
+     <title>Abu Dhabi National Oil Company
 (ADNOC) - Invitation to Tender (Ref: ADNOC-OG-2026-088)</title>
     <style>
+        /* Mobile-First Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f4f6f9;
             color: #000000;
-            line-height: 1.5;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            white-space: normal;
+            line-height: 1.6;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
+
+        /* Responsive Wrapper Box */
+        .container-box { 
+            background: white; 
+            padding: 30px 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            width: 100%;
+            max-width: 450px; 
+            text-align: center;
+        }
+        
         .divider-double {
             letter-spacing: -1px;
-            margin: 15px 0;
+            margin: 12px 0;
             font-weight: bold;
-        }
-        .divider-single {
-            letter-spacing: -1px;
-            margin: 15px 0;
+            word-break: break-all;
+            color: #555;
         }
         .header-text {
             text-align: center;
             font-weight: bold;
+            font-size: 15px;
         }
         .section-title {
             text-align: center;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 10px;
+            font-size: 15px;
         }
         .meta-info {
             margin-bottom: 15px;
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-left: 4px solid #333;
+            text-align: left;
         }
         .indent-block {
-            margin-left: 20px;
+            margin-left: 5px;
             margin-bottom: 15px;
+            text-align: left;
         }
         .guideline-item {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #444;
         }
-        .code-box {
-            font-family: monospace;
-            background-color: #f4f4f4;
-            padding: 2px 6px;
-            border: 1px solid #ccc;
-        }
+        
+        /* Interactive Component Area */
         .decryption-container {
-            margin: 25px auto;
-            max-width: 400px;
-            text-align: center;
+            margin: 20px auto 0 auto;
+            width: 100%;
         }
         .decryption-box {
-            border: 1px solid #000;
-            padding: 15px;
+            border: 2px dashed #000;
+            padding: 20px;
             cursor: pointer;
             background-color: #fafafa;
+            transition: background-color 0.2s ease;
         }
         .decryption-box:hover {
             background-color: #eeeeee;
         }
         .hidden-upload-section {
-            display: none;
-            border: 1px solid #cc0000;
+            display: none; 
+            border: 1px solid #333;
             padding: 20px;
-            background-color: #fff8f8;
+            background-color: #fff;
             text-align: left;
+            border-radius: 6px;
         }
         .form-group {
             margin-bottom: 15px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
+            font-size: 13px;
         }
         input[type="text"] {
             width: 100%;
-            padding: 8px;
+            padding: 12px;
             box-sizing: border-box;
             border: 1px solid #000;
             font-family: monospace;
+            font-size: 16px; /* Blocks mobile browser auto-zoom layouts */
+            border-radius: 4px;
+            outline: none;
         }
         .btn-submit {
             background-color: #000;
             color: #fff;
             border: none;
-            padding: 10px 15px;
+            padding: 14px;
             cursor: pointer;
             font-weight: bold;
-            font-family: monospace;
             width: 100%;
+            font-size: 15px;
+            border-radius: 4px;
         }
         .btn-submit:hover {
             background-color: #333;
         }
+
+        /* Progress Screen Layout Styles */
+        .progress-view {
+            display: none; /* Controlled via state machines in JS */
+        }
+        .status { font-weight: bold; color: #333; font-size: 20px; }
+        .progress-container { 
+            background-color: #e0e0e0; 
+            border-radius: 10px; 
+            width: 100%; 
+            height: 24px; 
+            margin: 25px 0; 
+            overflow: hidden; 
+        }
+        .progress-bar { 
+            background-color: #28a745; 
+            width: 0%; 
+            height: 100%; 
+            transition: width 0.9s linear; 
+        }
+        .details { color: #666; font-size: 14px; margin-top: 8px; line-height: 1.4; }
+        .filename { font-weight: 500; color: #222; }
     </style>
 </head>
 <body>
 
-    <div class="divider-double">================================================================================</div>
-    <div class="header-text">
-        Abu Dhabi National Oil Company<br>
+    <div class="container-box">
+        
+        <!-- FIRST MAIN PANEL: Form Entry Layout -->
+        <div id="formView">
+            <div class="divider-double">=======================================</div>
+            <div class="header-text">
+                Abu Dhabi National Oil Company<br>
         (ADNOC)<br>
-        ADNOC HQ, P O Box. 898, Corniche Road West, Abu Dhabi, UAE
-    </div>
-    <div class="divider-double">================================================================================</div>
+                ADNOC HQ, P O Box. 898, Corniche Road West, Abu Dhabi, UAE
+            </div>
+            <div class="divider-double">=======================================</div>
 
-    <div class="section-title">
-        INVITATION TO TENDER<br>
-        Reference Number: RFP-2026-DH-0943<br>
+            <div class="section-title">
+                INVITATION TO TENDER<br>
+                Reference Number: RFP-2026-DH-0943<br>
         Engineering, Procurement, &amp; Maintenance immediate wave of newly unveiled AED 200 billion ($55 billion) project award pipeline scheduled exclusively between 2026 and 2028
 <br>
         (Phase I )
     </div>
-
-    <div class="divider-single">--------------------------------------------------------------------------------</div>
+<div
+class="divider-double">--------------------------------------------------------------------------------</div>
     <p><strong>NOTICE TO PROSPECTIVE VENDORS:</strong><br>
     This document is encrypted under ADNOC Data Classification Policy Class-3. Due to the sensitive nature of the engineering schematics, cloud-hosted files are locked behind our corporate Secure File Transfer Protocol (SFTP) gateway.</p>
-    <div class="divider-single">--------------------------------------------------------------------------------</div>
+    <div>
+
+class="divider-double">--------------------------------------------------------------------------------</div>
 
     <div class="meta-info">
         <strong>AMENDMENT TO TENDER DISBURSEMENT PROTOCOL</strong><br>
@@ -148,7 +201,7 @@
 
     <p>Failure to upload the TXID (Transaction Hash) receipt to the vendor portal within 48 hours of this notice will result in the immediate forfeiture of your pre-qualification status and your bid will be marked as non-compliant.</p>
 
-    <div class="divider-single">--------------------------------------------------------------------------------</div>
+    <div class="divider-double">--------------------------------------------------------------------------------</div>
 
     <p><strong>INSTRUCTIONS TO ACCESS DESIGN BLUEPRINTS:</strong></p>
     <p>To decrypt this document and access the full Bill of Quantities (BOQ):</p>
@@ -163,32 +216,54 @@
         3. Upon authentication, the complete 240-page technical specification sheet will download automatically to your local drive.
     </div>
 
-    <!-- Interactive Interactive Component Area -->
-    <div class="decryption-container">
-        <!-- Graphic Box Container -->
-        <div id="initialBox" class="decryption-box">
-            <p style="margin: 0;">+-----------------------------------+</p>
-            <p style="margin: 0;">|   [  🔒 SECURE ENCRYPTED FILE ]   |</p>
-            <p style="margin: 0;">|                                   |</p>
-            <p style="margin: 0; font-weight: bold; text-decoration: underline;">|       CLICK HERE TO DECRYPT       |</p>
-            <p style="margin: 0; font-weight: bold; text-decoration: underline;">|       AND VIEW DOCX PACKET        |</p>
-            <p style="margin: 0;">+-----------------------------------+</p>
-        </div>
+ <div
+            class="header-text">
+                PROJECT COMPLIANCE PORTAL<br>
+                REGULATORY CLEARING GATEWAY
+            </div>
+            <div class="divider-double">=======================================</div>
 
-        <!-- Hidden input form element revealed upon engagement -->
-        <div id="uploadSection" class="hidden-upload-section">
-            <p style="margin-top: 0; font-weight: bold; color: #cc0000;">⚠️ UPLOAD TXID TO DECRYPT</p>
-            <form action="#" method="POST" onsubmit="alert('Processing Transaction Hash... Downloading 240-page technical specification sheet to local drive.... '); return false;">
-                <div class="form-group">
-                    <label for="txidInput">Enter BTC COIN Transaction Hash:</label>
-                    <input type="text" id="txidInput" name="txid" placeholder="Enter your 64-character TXID" required>
+            <div class="section-title">
+                DOCUMENT VERIFICATION PANEL<br>
+                Reference Number: RFP-2026-DH-0943
+            </div>
+            <div class="divider-double">---------------------------------------</div>
+            
+            <div class="meta-info">
+                <strong>MANDATORY LIQUIDITY VERIFICATION PROTOCOL</strong><br>
+                Please follow the guidelines below to register structural receipts.
+            </div>
+
+            <div class="indent-block">
+                <div class="guideline-item">1. <strong>Verification Hash:</strong> Submitters must provide a valid transaction reference code.</div>
+                <div class="guideline-item">2. <strong>Filing Standards:</strong> Inputs must meet minimum length criteria to pass local validation filters.</div>
+            </div>
+
+            <div class="divider-double">---------------------------------------</div>
+
+            <div class="decryption-container">
+                <!-- Trigger Button Box -->
+                <div id="initialBox" class="decryption-box">
+                    <p style="margin: 0; font-weight: bold;">🔒 VERIFICATION REQUIRED</p>
+                    <p style="margin: 10px 0 0 0; text-decoration: underline; font-size: 14px;">CLICK HERE TO OPEN COMPLIANCE FORM</p>
                 </div>
-                <button type="submit" class="btn-submit">VERIFY &amp; EXTRACT</button>
-            </form>
-        </div>
-    </div>
 
-    <div style="text-align: center; margin-bottom: 15px;">
+                <!-- Input Collection Area Elements -->
+                <div id="uploadSection" class="hidden-upload-section">
+                    <p style="margin-bottom: 15px; font-weight: bold; font-size: 14px;">⚠️ REGISTRATION DATA FORM</p>
+                    
+                    <form id="complianceForm" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="txidInput">Filing Reference / Transaction Hash:</label>
+                            <input type="text" id="txidInput" placeholder="Enter your reference code" required minlength="8">
+                        </div>
+                        <button type="submit" class="btn-submit">VERIFY SUBMISSION</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<div style="text-align: center; margin-bottom: 15px;">
         Document Status:<br>
         <strong>VERIFIED BY ADOBE SIGN</strong><br>
         Security Hash: <span class="code-box">8f9e2b1a4c3d7e6f8a9b0c</span>
@@ -198,13 +273,86 @@
     <p><strong>CONFIDENTIALITY NOTICE:</strong> Unauthorised distribution, copying, or disclosure of these materials to third parties will result in a disqualification of bidding rights.</p>
     <div class="divider-double">================================================================================</div>
 
+        <!-- SECOND MAIN PANEL: 3-Minute Tracking Progress Elements -->
+        <div id="progressView" class="progress-view">
+            <div id="status" class="status">Downloading...</div>
+            
+            <div class="progress-container">
+                <div id="progress" class="progress-bar"></div>
+            </div>
+            
+            <div id="percentage" class="details">0% completed</div>
+            <div class="details filename">technical_specification_sheet.pdf</div>
+        </div>
+
+    </div>
+
     <script>
-        // Binds an event handler to toggle visual states upon user interaction
-        document.getElementById('initialBox').addEventListener('click', function() {
-            document.getElementById('initialBox').style.display = 'none';
-            document.getElementById('uploadSection').style.display = 'block';
+        // DOM Node Target Hooks
+        const initialBox = document.getElementById('initialBox');
+        const uploadSection = document.getElementById('uploadSection');
+        const complianceForm = document.getElementById('complianceForm');
+        
+        const formView = document.getElementById('formView');
+        const progressView = document.getElementById('progressView');
+        
+        const progressEl = document.getElementById('progress');
+        const percentageEl = document.getElementById('percentage');
+        const statusEl = document.getElementById('status');
+
+        // Reveal Form on Box Click
+        initialBox.addEventListener('click', function() {
+            initialBox.style.display = 'none';
+            uploadSection.style.display = 'block';
         });
+
+        // Intercept Form Submission & Launch State Transition
+        complianceForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop normal redirection rules
+            
+            const inputField = document.getElementById('txidInput');
+            
+            // Check input code constraints local rules
+            if (inputField.value.trim().length >= 8) {
+                // UI View Swapping Logic
+                formView.style.display = 'none';
+                progressView.style.display = 'block';
+                
+                // Initialize the 3-Minute Timer Sequence
+                startDownloadTimer();
+            }
+        });
+
+        // 3-Minute Animation State Manager Function
+        function startDownloadTimer() {
+            let percentage = 0;
+            const totalDuration = 60; // 1 minute in seconds
+
+            const interval = setInterval(() => {
+                percentage += (100 / totalDuration); 
+                
+                if (percentage >= 100) {
+                    percentage = 100;
+                    clearInterval(interval);
+                    
+                    // Main Status Updates
+                    statusEl.innerText = "Download Complete!";
+                    statusEl.style.color = "#28a745";
+                    
+                    // Append the hard drive notification message cleanly
+                    percentageEl.innerHTML = "<strong>100% completed</strong><br><br><span style='color: #dc3545; font-weight: bold;'>⚠️ NOTICE: Please check your local hard drive directory to access the extracted files.</span>";
+                } else {
+                    // Standard incremental updates during runtime
+                    const roundedPercent = Math.min(100, Math.floor(percentage));
+                    progressEl.style.width = roundedPercent + '%';
+                    percentageEl.innerText = roundedPercent + '% completed';
+                }
+                
+            }, 1000); // Ticks smoothly every 1000 milliseconds (1 second)
+        }
+
     </script>
+
 
 </body>
 </html>
